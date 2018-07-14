@@ -14,7 +14,7 @@ class ThreadUrl(threading.Thread):
 
     def run(self):
         while True:
-            url = requests.get(URL)
+            url = requests.get(queue.get())
             print(url.status_code)
             self.queue.task_done()
 
